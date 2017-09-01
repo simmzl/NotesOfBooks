@@ -117,7 +117,7 @@
     console.log(b);//未定义
     console.log(c);//未定义
     ```
-    5.**作用域链** 
+    5. **作用域链** 
     1. 每一段js代码（全局代码或者函数）都有一个与之关联的作用域链，这个作用域链是一个**对象列表或链表**；
     2. “**变量解析**”过程：查找一个变量x的值时，先**从链的第一个对象中查找**，如果该对象有叫x这个属性的话，则使用这个属性的值，
     否则查找链上的下一个对象，以此类推，直到找到，否则抛出一个引用错误（Reference Error）的异常。
@@ -128,21 +128,21 @@
 1. 理解了作用域链，闭包也就好理解多了；
 2. 当内部函数在定义它的作用域的外部被引用时,就创建了该内部函数的闭包,如果内部函数引用了位于外部函数的变量,当外部函数调用完毕后,
 这些变量在内存不会被释放,因为闭包需要它们，涉及js垃圾回收机制；
-```javascript
-function outerFun(){
-     var a=0;
-     function innerFun()
-     {
-      a++;
-      alert(a);
-     }
-     return innerFun;  //注意这里
-    }
-    var obj=outerFun();
-    obj();  //结果为1
-    obj();  //结果为2
-    var obj2=outerFun();
-    obj2();//结果为1
-    obj2();//结果为2
-```
+    ```javascript
+    function outerFun(){
+         var a=0;
+         function innerFun()
+         {
+          a++;
+          alert(a);
+         }
+         return innerFun;  //注意这里
+        }
+        var obj=outerFun();
+        obj();  //结果为1
+        obj();  //结果为2
+        var obj2=outerFun();
+        obj2();//结果为1
+        obj2();//结果为2
+    ```
 3.闭包着实不好理解.....前面我把闭包想简单了....在参考了阮一峰等大神的博客之后写了一篇[博客]()作为整理思路，理解闭包之后js的Garbage Collection好理解多了...在博客最后也写到了GC；
